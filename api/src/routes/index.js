@@ -3,6 +3,19 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 
 
+// JUEGOS
+// https://api.rawg.io/api?key={API_KEY}
+// https://api.rawg.io/api/games?key=7f2e8867e8f6497883992432872275b0
+// https://api.rawg.io/api/games/{id}?key={API_KEY}
+// https://api.rawg.io/api/games/3328?key=7f2e8867e8f6497883992432872275b0
+
+// GENEROS
+// https://api.rawg.io/api/genres?key={API_KEY}
+// https://api.rawg.io/api/genres?key=7f2e8867e8f6497883992432872275b0
+// https://api.rawg.io/api/genres/{id}?key={API_KEY}
+// https://api.rawg.io/api/genres/4?key=7f2e8867e8f6497883992432872275b0
+
+
 const router = Router();
 
 // Configurar los routers
