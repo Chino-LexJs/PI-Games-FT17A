@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
       released: {
         type: DataTypes.DATE,
       },
+      background_image: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       rating: {
         type: DataTypes.REAL,
       },
