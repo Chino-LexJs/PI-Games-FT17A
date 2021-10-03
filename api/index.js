@@ -53,6 +53,7 @@ async function addGenres(genresApi) {
 }
 
 // Syncing all the models at once.
+// alter: true
 conn.sync({ force: true }).then(() => {
   getGenres();
   server.listen(3001, () => {

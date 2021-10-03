@@ -1,0 +1,33 @@
+.container {
+  margin: 0;
+  background: #000000;
+  background: -webkit-linear-gradient(to right, #2a2d2eb4, #000000bd),
+    url("https://media.rawg.io/media/games/a8b/a8bf6f31bfbdaf7d4b86c1953c62cee0.jpg");
+  background: linear-gradient(to right, #2a2d2eb4, #000000bd),
+    url("https://media.rawg.io/media/games/a8b/a8bf6f31bfbdaf7d4b86c1953c62cee0.jpg");
+  background-size: cover;
+  height: 100vh;
+  font-family: "Oswald", sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  background-size: cover;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.title {
+  display: 50%;
+  text-align: left;
+  padding-bottom: 3vh;
+}
+
+
