@@ -10,14 +10,15 @@
 }
 
 
-ul {
+.sidebar {
+  width: 30%;
+  margin: 0%;
   list-style: none;
 }
 
 .container li {
   font-size: 25px;
-  padding-top: 10%;
-  padding-bottom: 15%;
+  padding-bottom: 15vh;
   cursor: pointer;
 }
 

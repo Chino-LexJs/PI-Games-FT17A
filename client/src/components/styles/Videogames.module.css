@@ -1,5 +1,20 @@
 .content {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-auto-rows: minmax(100px, auto);
   margin: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-right: 5vh;
+}
+
+.pagination {
+  justify-content: center;
+  display: flex;
+}
+
+.pagination li {
+  justify-content: center;
+  padding-right: 15vh;
 }

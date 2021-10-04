@@ -15,7 +15,7 @@ function Navbar() {
       <ul className={styles.search}>
         <li>
           <input type="text" placeholder="    Search" />
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </li>
       </ul>
       <ul className={styles.menu}>

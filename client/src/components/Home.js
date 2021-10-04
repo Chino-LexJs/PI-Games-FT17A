@@ -19,7 +19,7 @@ function Home() {
       <Navbar />
       <div className={ styles.container }>
         <div>
-            <ul>
+            <ul className={styles.sidebar}>
                 <li>
                     Home
                 </li>
