@@ -9,6 +9,11 @@
   height: 100px;
 }
 
+::placeholder{
+    opacity: 0.5;
+    border: 0;
+    margin-left: 15vh;
+}
 
 a {
     color: #ffffff;
@@ -49,6 +54,7 @@ ul {
     border: none;
     border-radius: 20px;
     padding-right: 0;
+    padding-left: 2vh;
     opacity: 0.3;
 }
 

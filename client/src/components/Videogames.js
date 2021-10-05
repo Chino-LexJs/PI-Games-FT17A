@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+
 import Card from "./Card";
 import styles from "./styles/Videogames.module.css";
 
@@ -20,6 +21,7 @@ function Videogames() {
   const setPage = (e) => {
     setPageNumber(e.target.value);
   };
+
   return (
     <div className={styles.content}>
       <div className={styles.cards}>{displayGames}</div>
