@@ -4,7 +4,6 @@ const getGenres = async (req, res) => {
   try {
     let genres = await Genre.findAll();
     if (genres.length === 0) {
-      console.log("PASAMOS POR ACA");
       return res.status(404).json({
         data: null,
         msg: "Table Genres empty",

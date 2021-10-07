@@ -57,7 +57,25 @@ const getVideogame = async (req, res) => {
   const { name } = req.params;
   try {
     let videogamesByName = await getVideogameApi(name);
-    console.log(videogamesByName.length);
+    let gamesDB = await Videogame.findAll({
+      where: {
+        name: name,
+      },
+      include: [
+        {
+          model: Genre,
+          attributes: ["id", "name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
+    if (gamesDB.length > 0) {
+      for (let i = 0; i < gamesDB.length; i++) {
+        videogamesByName.push(gamesDB[i].dataValues);
+      }
+    }
     res.status(200).json({
       data: videogamesByName,
       msg: "All videogames of table videogames whith that name",

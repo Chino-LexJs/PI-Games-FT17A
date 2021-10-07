@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./styles/DetailGame.module.css";
 import { useSelector } from "react-redux";
 
@@ -22,7 +22,7 @@ function DetailGame() {
               ? `${videogame.background_image_additional}`
               : `${videogame.background_image}`
           }
-          alt="aditional game image"
+          alt="aditional"
         />
 
         <div className={styles.detail}>
@@ -35,7 +35,7 @@ function DetailGame() {
             <p> {videogame.rating} </p>
           </div>
         </div>
-        <div className={styles.detail} className={styles.content}>
+        <div className={`${styles.detail} ${styles.content}`}>
           <h5>Genres</h5>
           <p> {videogame.genres.map((genre) => `${genre.name} | `)} </p>
           <h5>Platforms</h5>

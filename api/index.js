@@ -34,6 +34,7 @@ async function getGenres() {
       return {
         id: item.id,
         name: item.name,
+        image_background: item.image_background
       };
     });
 
@@ -47,7 +48,7 @@ async function getGenres() {
 
 async function addGenres(genresApi) {
   await Genre.bulkCreate(genresApi, {
-    fields: ["id", "name"],
+    fields: ["id", "name", "image_background"],
     ignoreDuplicates: true,
   });
 }

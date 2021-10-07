@@ -115,9 +115,9 @@ function CreateGame() {
     }
   };
 
-  const deleteGenre = (id) => {
-    setGenreSelected(genreSelected.filter((item) => item !== id));
-  };
+  // const deleteGenre = (id) => {
+  //   setGenreSelected(genreSelected.filter((item) => item !== id));
+  // };
 
   return (
     <div className={styles.container}>

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getGameByName } from "../actions/getGameByName";
 import styles from "./styles/Navbar.module.css";
 import logo from "../img/logo.png";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Navbar() {
   const ENTER = 13;
@@ -17,6 +17,10 @@ function Navbar() {
     e.preventDefault();
     history.push("/home/add");
   };
+  const handleMyGames = (e) => {
+    e.preventDefault();
+    history.push("/home/myvideogames");
+  }
 
   const handleInput = (e) => {
     const gameSearch = e.target.value;
@@ -52,12 +56,12 @@ function Navbar() {
         </li>
       </ul>
       <ul className={styles.menu}>
-        <li>
-          <i class="far fa-circle"></i>
+        <li  onClick={handleMyGames}>
+          <i className="far fa-circle"></i>
           <b>My Games</b>
         </li>
         <li onClick={handleAddGame}>
-          <i class="fas fa-plus"></i>
+          <i className="fas fa-plus"></i>
           <b>Add Game</b>
         </li>
       </ul>
