@@ -1,4 +1,4 @@
-const { Videogame } = require("../db");
+const { Videogame, Genre } = require("../db");
 const axios = require("axios").default;
 const { API_KEY } = process.env;
 
@@ -23,7 +23,17 @@ const getVideogame = async (req, res) => {
         where: {
           id: id,
         },
+        include: [
+          {
+            model: Genre,
+            attributes: ["id", "name"],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
       });
+      videogameById = videogameById.pop();
     } else {
       // busco en la api
       videogameById = await getVideogameApi(id);

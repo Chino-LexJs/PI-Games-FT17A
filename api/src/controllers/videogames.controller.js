@@ -1,4 +1,4 @@
-const { Videogame } = require("../db");
+const { Videogame, Genre } = require("../db");
 const axios = require("axios").default;
 const { API_KEY } = process.env;
 
@@ -74,11 +74,21 @@ const getVideogame = async (req, res) => {
 const getVideogames = async (req, res) => {
   try {
     let videogamesApi = await getVideogamesApi();
-    let videogames = await Videogame.findAll(); // trae juegos de la BD
-    videogames = videogames.concat(videogamesApi); // une todos los juegos
+    let videogamesDB = await Videogame.findAll({
+      include: [
+        {
+          model: Genre,
+          attributes: ["id", "name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
+    videogamesApi = [...videogamesApi, ...videogamesDB]; // une todos los juegos
     res.status(200).json({
       data: videogamesApi,
-      msg: "All videogames of table videogames",
+      msg: `Cantidad de videojuegos : ${videogamesApi.length}`,
     });
   } catch (error) {
     console.log(error);

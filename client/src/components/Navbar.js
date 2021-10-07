@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getGameByName } from "../actions/getGameByName";
 import styles from "./styles/Navbar.module.css";
 import logo from "../img/logo.png";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Navbar() {
   const ENTER = 13;
@@ -12,6 +12,10 @@ function Navbar() {
   const handleHistory = (e) => {
     e.preventDefault();
     history.push("/");
+  };
+  const handleAddGame = (e) => {
+    e.preventDefault();
+    history.push("/home/add");
   };
 
   const handleInput = (e) => {
@@ -42,7 +46,7 @@ function Navbar() {
             type="text"
             onKeyDown={(e) => handleInput(e)}
             placeholder="Search"
-            className={ styles.placeholder }
+            className={styles.placeholder}
           />
           <i className="fas fa-search"></i>
         </li>
@@ -50,11 +54,11 @@ function Navbar() {
       <ul className={styles.menu}>
         <li>
           <i class="far fa-circle"></i>
-          <a href="/">My Games</a>
+          <b>My Games</b>
         </li>
-        <li>
+        <li onClick={handleAddGame}>
           <i class="fas fa-plus"></i>
-          <a href="/">Add Game</a>
+          <b>Add Game</b>
         </li>
       </ul>
     </nav>

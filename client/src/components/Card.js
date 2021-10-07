@@ -2,13 +2,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import styles from "./styles/Card.module.css";
 import { useHistory } from "react-router-dom";
-import {getDetailGame} from "../actions/getDetailGame";
+import { getDetailGame } from "../actions/getDetailGame";
 
 function Card({ game }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const detailGame = (id) => {
-    console.log(id);
     let fetchGames = async function () {
       await dispatch(getDetailGame(id));
     };
@@ -21,6 +20,13 @@ function Card({ game }) {
       <img src={`${game.background_image}`} alt="img" key={game.id} />
       <div className={styles.cardbody}>
         <p>{game.name}</p>
+        <hr />
+        <div className={styles.genres}>
+          <p>Genres: </p>
+          {game.genres.map((genre) => (
+            <u> {`${genre.name}`} </u>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 export const GET_ALL_GAMES = 'GET_ALL_GAMES';
 export const GET_GAME_BY_NAME = 'GET_GAME_BY_NAME';
 export const GET_DETAIL_GAME = 'GET_DETAIL_GAME';
+export const CHANGE_ORDER = 'CHANGE_ORDER';
 
 
 

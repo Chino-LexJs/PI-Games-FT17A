@@ -9,19 +9,33 @@
   grid-template-columns: 15% 85%;
 }
 
-
 .sidebar {
-  width: 30%;
+  width: 40%;
+  display: grid;
+  justify-content: center;
+  padding-top: 20%;
   margin: 0%;
   list-style: none;
 }
 
 .container li {
   font-size: 25px;
-  padding-bottom: 15vh;
+  padding-bottom: 11vh;
   cursor: pointer;
 }
 
 .container li:hover {
+  color: #166e06;
+  transform: scale(1.1);
+}
+
+.container a {
+  font-size: 25px;
+  padding-bottom: 11vh;
+  cursor: pointer;
+}
+
+.container a:hover {
+  color: #166e06;
   transform: scale(1.1);
 }

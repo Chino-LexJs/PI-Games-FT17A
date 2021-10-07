@@ -5,8 +5,8 @@
   color: white;
   text-align: center;
   border-radius: 15px;
-  padding-bottom: 50px;
-  padding-top: 50px;
+  margin-bottom: 70px;
+  margin-top: 50px;
 }
 
 .card:hover img {
@@ -27,7 +27,8 @@
 }
 
 .cardbody {
-  height: 15vh;
+  height: 25vh;
+  margin: 0;
   background-color: #2a2d2e;
   border-radius: 0px 0px 15px 15px;
 }
@@ -35,4 +36,34 @@
 .cardbody p {
   margin-top: 0;
   font-size: 4vh;
+}
+
+.cardbody i {
+  font-size: 2vh;
+}
+
+.cardbody hr {
+  width: 90%;
+  opacity: 0.3;
+}
+
+.cardbody .genres {
+  display: flex;
+  width: 100%;
+  font-size: 3vh;
+  justify-content: left;
+}
+
+.cardbody .genres p {
+  font-size: 3vh;
+  opacity: 0.3;
+  margin-left: 20px;
+  padding-right: 30px;  
+}
+
+.cardbody .genres u {
+  font-size: 15px;
+  opacity: 0.7;
+  margin-right: 15px; 
+  margin-top: 3.5px;
 }
