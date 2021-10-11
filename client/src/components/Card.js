@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { getDetailGame } from "../actions/getDetailGame";
 import { filterGenres } from "../actions/filterGenres";
 
-function Card({ game, genre }) {
+function Card({ game, genre, index }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const detailGame = (id) => {
@@ -29,13 +29,16 @@ function Card({ game, genre }) {
         <div className={styles.card} onDoubleClick={() => detailGame(game.id)}>
           <img src={`${game.background_image}`} alt="img" key={game.id} />
           <div className={styles.cardbody}>
-            <p>{game.name}</p>
-            <label>{game.rating}</label>
+            <h2>{game.name}</h2>
+            <div className={styles.header_card}>
+              <p>Rating: </p>
+              <u>{game.rating}</u>
+            </div>
             <hr />
             <div className={styles.genres}>
               <p>Genres: </p>
               {game.genres.map((genre) => (
-                <u key={genre.id} > {`${genre.name}`} </u>
+                <u key={genre.id}> {`${genre.name}`} </u>
               ))}
             </div>
           </div>

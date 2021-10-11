@@ -3,10 +3,21 @@
   margin: 0;
 }
 
+.hashloader {
+  display: flex;
+  padding-top: 25vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
   padding-right: 5vh;
+  padding-left: 10vh;
+  align-items: center;
 }
 
 .pagination {
@@ -15,6 +26,24 @@
 }
 
 .pagination li {
+  font-size: 30px;
   justify-content: center;
   padding-right: 15vh;
+}
+
+.pagination li:hover {
+  transform: scale(1.2);
+}
+
+label {
+  background-color: #33204d;
+  position: absolute;
+  padding: 5vh;
+  margin-left: 8vh;
+  font-size: 8vh;
+  border-radius: 15px;
+  /* sombras */
+  -webkit-box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.75);
 }

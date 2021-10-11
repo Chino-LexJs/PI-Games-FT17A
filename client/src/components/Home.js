@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { getAllGames } from "../actions/getAllGames";
 import { changeOrder } from "../actions/changeOrder";
 import { getGenres } from "../actions/getGenres";
-import Navbar from "./Navbar";
-import styles from "./styles/Home.module.css";
 import Videogame from "./Videogame";
 import Videogames from "./Videogames";
 import DetailGame from "./DetailGame";
@@ -14,6 +12,7 @@ import CreateGame from "./CreateGame";
 import Genres from "./Genres";
 import VideogamesGenre from "./VideogamesGenre";
 import MyVideoGames from "./MyVideoGames";
+import styles from "./styles/Home.module.css";
 
 function Home() {
   const dispatch = useDispatch();
@@ -34,21 +33,21 @@ function Home() {
   };
   return (
     <div className={styles.content}>
-      <Navbar />
       <div className={styles.container}>
-        <div>
-          <ul className={styles.sidebar}>
-            <li onClick={() => handleChange(0)}>
-              <Link to="/home">Videogames</Link>
-            </li>
-            <li>
-              <Link to="/home/genres">Generos</Link>
-            </li>
-            <li onClick={() => handleChange(3)} >Raiting</li>
+        <div className={styles.sidebar}>
+          <ul>
+            <Link to="/home">
+              <li onClick={() => handleChange(0)}>Videogames</li>
+            </Link>
+            <Link to="/home/genres">
+              <li>Generos</li>
+            </Link>
+            <li onClick={() => handleChange(3)}>Raiting</li>
             <li onClick={() => handleChange(1)}>Order by name A-Z</li>
             <li onClick={() => handleChange(2)}>Order by name Z-A</li>
           </ul>
         </div>
+
         <Route exact path="/home" component={Videogames} />
         <Route exact path="/home/genres" component={Genres} />
         <Route exact path="/home/videogame" component={Videogame} />

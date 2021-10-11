@@ -1,12 +1,32 @@
 .card {
   margin: 0;
-  width: 55vh;
-  height: 50vh;
+  width: 40vh;
+  height: auto;
   color: white;
-  text-align: center;
+  text-align: left;
   border-radius: 15px;
   margin-bottom: 70px;
-  margin-top: 50px;
+}
+
+.card p {
+  font-size: 3vh;
+  opacity: 0.3;
+  padding-right: 30px;
+}
+
+.card u {
+  font-size: 15px;
+  opacity: 0.7;
+  margin-right: 15px;
+  margin-top: 18.75px;
+}
+
+.header_card {
+  display: flex;
+}
+
+.header_card label {
+  align-items: center;
 }
 
 .card:hover img {
@@ -19,23 +39,21 @@
 .card img {
   object-fit: cover;
   cursor: pointer;
-  height: 30vh;
-  width: 55vh;
+  height: 60vh;
+  width: 40vh;
   background-color: #2a2d2e;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 15px 15px;
   margin-bottom: 0%;
+  /* Sombras */
+  -webkit-box-shadow: -8px 3px 5px 1px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: -8px 3px 5px 1px rgba(0, 0, 0, 0.43);
+  box-shadow: -8px 3px 5px 1px rgba(0, 0, 0, 0.43);
 }
 
 .cardbody {
   height: 30vh;
   margin: 0;
-  background-color: #2a2d2e;
   border-radius: 0px 0px 15px 15px;
-}
-
-.cardbody p {
-  margin-top: 0;
-  font-size: 4vh;
 }
 
 .cardbody i {
@@ -43,7 +61,7 @@
 }
 
 .cardbody hr {
-  width: 90%;
+  width: 100%;
   opacity: 0.3;
 }
 
@@ -52,18 +70,4 @@
   width: 100%;
   font-size: 3vh;
   justify-content: left;
-}
-
-.cardbody .genres p {
-  font-size: 3vh;
-  opacity: 0.3;
-  margin-left: 20px;
-  padding-right: 30px;  
-}
-
-.cardbody .genres u {
-  font-size: 15px;
-  opacity: 0.7;
-  margin-right: 15px; 
-  margin-top: 3.5px;
 }

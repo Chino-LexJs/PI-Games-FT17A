@@ -1,82 +1,40 @@
-
 body {
   margin: 0;
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #2a2d2e, #000000);
-  background: linear-gradient(to right, #2a2d2e, #000000);
+  background: #2a1035;
+  background: -webkit-linear-gradient(to right, #45204d, #2a1035);
+  background: linear-gradient(to right, #45204d, #2a1035);
   background-size: cover;
   height: 100vh;
   width: 100%;
-  font-family: 'Oswald', sans-serif;
-  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  color: white;
 }
 
 code {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 button {
-  background-color: #151515; /* Green */
+  background: #2a1035;
+  background: -webkit-linear-gradient(to right, #45204d, #2a1035);
+  background-color: linear-gradient(to right, #45204d, #2a1035);
   border: none;
   color: white;
   padding: 10px 32px;
   text-align: center;
   text-decoration: none;
-  width: 40vh;
+  width: 30vh;
+  height: 8vh;
   font-size: 16px;
-  border-radius: 20px;
-  box-shadow: 1px 1px 2px black, 0 0 1em #000, 0 0 0.2em #000;
+  border-radius: 30px;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #2a2d2ec9;
-  box-shadow: 1px 1px 2px black, 0 0 1em #2a2d2eb6, 0 0 0.2em #2a2d2eb6;
+  background-color: #45204d;
+  box-shadow: 1px 1px 2px #45204d, 0 0 1em #45204d, 0 0 0.2em #45204d;
 }
 
-.buttonLanding,
-.buttonLanding::after {
-  width: 380px;
-  height: 86px;
-  font-size: 36px;
-  font-family: "Bebas Neue", cursive;
-  background: linear-gradient(45deg, transparent 5%, #ffffff 5%);
-  border: 0;
-  color: #000;
-  letter-spacing: 3px;
-  line-height: 88px;
-  box-shadow: 6px 0px 0px #000;
-  outline: transparent;
-  position: relative;
-}
 
-.buttonLanding::after {
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
 
-  content: "START";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 3%,
-    #00e6f6 3%,
-    #00e6f6 5%,
-    #000 5%
-  );
-  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
-  clip-path: var(--slice-0);
-}
 
-.buttonLanding:hover::after {
-  animation: 1s glitch;
-  animation-timing-function: steps(2, end);
-}

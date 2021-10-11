@@ -1,34 +1,62 @@
-.container {
-  margin: 0;
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #2a2d2eb4, #000000bd),
-    url("https://media.rawg.io/media/games/a8b/a8bf6f31bfbdaf7d4b86c1953c62cee0.jpg");
-  background: linear-gradient(to right, #2a2d2eb4, #000000bd),
-    url("https://media.rawg.io/media/games/a8b/a8bf6f31bfbdaf7d4b86c1953c62cee0.jpg");
-  background-size: cover;
-  height: 100vh;
-  font-family: "Oswald", sans-serif;
-  color: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.header {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: left;
 }
 
 .content {
-  height: 100vh;
-  display: flex;
-  align-items: left;
-  justify-content: center;
-  flex-direction: column;
-  background-size: cover;
-  padding-left: 7%;
-  padding-right: 7%;
-}
-
-.title {
-  display: 50%;
-  font-size: 23px;
+  max-width: 40rem;
+  margin-left: 10%;
   text-align: left;
-  padding-bottom: 3vh;
 }
 
+.header_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
+.header_video video {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.header_overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(to right, #45204d9c, #2a1035b0);
+  background: linear-gradient(to right, #45204d9c, #2a1035b0);
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.header_content {
+  z-index: 2;
+  padding-top: 30vh;
+}
+
+.header_content h1 {
+  margin-bottom: 0;
+  display: 50%;
+  font-size: 35px;
+}
+
+.header_content p {
+  font-size: 1.5rem;
+  display: block;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 960px) {
+  .content {
+    padding: 0 3rem 0 3rem;
+  }
+}

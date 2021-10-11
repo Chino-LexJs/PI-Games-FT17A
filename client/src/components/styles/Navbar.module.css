@@ -1,84 +1,88 @@
 .navMain {
   margin: auto;
+  background-color: #33204d;
   width: 100%;
   font-size: 20px;
   justify-content: right;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 80px;
+  /* Sombras */
+  -webkit-box-shadow: -2px 3px 5px -1px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: -2px 3px 5px -1px rgba(0, 0, 0, 0.43);
+  box-shadow: -2px 3px 5px -1px rgba(0, 0, 0, 0.43);
 }
 
-::placeholder{
-    opacity: 0.5;
-    border: 0;
-    margin-left: 15vh;
+::placeholder {
+  opacity: 0.5;
+  border: 0;
+  margin-left: 15vh;
 }
 
 a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .logo {
-    cursor: pointer;
-    width: 50px;
-    display: 10%;
-    padding-left: 4%;
+  cursor: pointer;
+  width: 50px;
+  display: 10%;
+  padding-left: 4%;
 }
 
 .navMain ul {
-    display: flex;
+  display: flex;
 }
 
 .navMain ul li b {
-    padding: 10px;
+  padding: 10px;
 }
 
 .navMain ul.menu {
-    flex: 1;
+  flex: 1;
 }
 
-.navMain ul.menu li{
-    margin-right: 20px;
+.navMain ul.menu li {
+  margin-right: 20px;
 }
 
-.navMain ul.menu li:hover{
-    cursor: pointer;
-    color: #166e06;
-    transform: scale(1.1);
+.navMain ul.menu li:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .search {
-    width: 50%;
-    padding-right: 10vh;
-    padding-left: 15vh;
+  width: 50%;
+  padding-right: 10vh;
+  padding-left: 15vh;
 }
 
 .search input {
-    width: 100vh;
-    height: 5vh;
-    border: none;
-    border-width: 0;
-    border-radius: 20px;
-    padding-right: 0;
-    padding-left: 2vh;
-    opacity: 0.3;
+  width: 100vh;
+  height: 5vh;
+  border: none;
+  border-width: 0;
+  border-radius: 20px;
+  padding-right: 0;
+  padding-left: 2vh;
+  opacity: 0.3;
 }
 
-.search input:hover{
-    width: 100vh;
-    height: 5vh;
-    border: none;
-    border-radius: 20px;
-    padding-right: 0;
-    opacity: 0.7;
+.search input:hover {
+  width: 100vh;
+  height: 5vh;
+  border: none;
+  border-radius: 20px;
+  padding-right: 0;
+  opacity: 0.7;
 }
 
 i {
-    padding-left: 10px;
+  padding-left: 10px;
 }

@@ -121,19 +121,107 @@ function CreateGame() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.card}>
+      <div className={styles.left}>
+        <div className={styles.left_top}>
+          {input.background_image ? (
+            <img src={`${input.background_image}`} alt="backgraound of game" />
+          ) : (
+            <img
+              src="https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg"
+              alt="bonderlands"
+            />
+          )}
+          <h1> {input.name ? input.name : "Title of the game"} </h1>
+        </div>
+        <div className={styles.left_mid}>
+          <hr />
+          <h2>Rating: </h2>
+          <p> {input.rating} </p>
+          <h2>Date Realising: </h2>
+          <p> {input.released} </p>
+        </div>
+        <div>
+          <hr />
+          <h2>Genres: </h2>
+          <div className={styles.genreSelected}>
+            {genreSelected.map((gs) =>
+              genres.map((g) =>
+                g.id === gs ? (
+                  <p value={g.id} onDoubleClick={(e) => console.log(e.target)}>
+                    {g.name}
+                  </p>
+                ) : (
+                  ""
+                )
+              )
+            )}
+          </div>
+        </div>
+      </div>
+      <form onSubmit={addGame} className={styles.right}>
         <h3> Add a missing game </h3>
-        <form onSubmit={addGame}>
-          <label>Title *</label>
-          <input
-            required="true"
-            onChange={handleInputChange}
-            type="text"
-            name="name"
-            value={input.name}
-            placeholder="Add Title..."
-          />
-          <label>Description *</label>
+
+        <input
+          required="true"
+          onChange={handleInputChange}
+          type="text"
+          name="name"
+          value={input.name}
+          placeholder="Add Title..."
+        />
+        <input
+          required="true"
+          onChange={handleInputChange}
+          type="date"
+          name="released"
+          value={input.released}
+          placeholder="yyyy-mm-dd"
+        />
+        <input
+          required="true"
+          onChange={handleInputChange}
+          type="text"
+          name="background_image"
+          value={input.background_image}
+          placeholder="Background image..."
+        />
+        <input
+          required="true"
+          onChange={handleInputChange}
+          type="number"
+          min="0"
+          max="5"
+          name="rating"
+          value={input.rating}
+        />
+        <select required="true" name="genres" onChange={handleGenre}>
+          {genres.map((g) => (
+            <option value={g.id} key={g.id}>
+              {g.name}
+            </option>
+          ))}
+        </select>
+
+        <textarea
+          required="true"
+          onChange={handleInputChange}
+          name="description"
+          placeholder="Add Description..."
+          value={input.description}
+          cols="30"
+          rows="10"
+        ></textarea>
+
+        {/* <div>
+            <input
+              required="true"
+              onChange={handleInputChange}
+              type="text"
+              name="name"
+              value={input.name}
+              placeholder="Add Title..."
+            />
+          </div>
           <textarea
             required="true"
             onChange={handleInputChange}
@@ -143,7 +231,6 @@ function CreateGame() {
             cols="30"
             rows="10"
           ></textarea>
-          <label>Released date*</label>
           <input
             required="true"
             onChange={handleInputChange}
@@ -152,7 +239,6 @@ function CreateGame() {
             value={input.released}
             placeholder="Add Title..."
           />
-          <label>Background Image *</label>
           <input
             required="true"
             onChange={handleInputChange}
@@ -161,7 +247,6 @@ function CreateGame() {
             value={input.background_image}
             placeholder="Add Title..."
           />
-          <label>Rating *</label>
           <input
             required="true"
             onChange={handleInputChange}
@@ -170,7 +255,6 @@ function CreateGame() {
             value={input.rating}
             placeholder="Add rating..."
           />
-          <label>Genres</label>
           <select required="true" name="genres" onChange={handleGenre}>
             {genres.map((g) => (
               <option value={g.id} key={g.id}>
@@ -190,13 +274,89 @@ function CreateGame() {
                 )
               )
             )}
-          </div>
+          </div> */}
 
-          <button type="submit">SAVE GAME</button>
-        </form>
-      </div>
+        <button type="submit">SAVE GAME</button>
+      </form>
     </div>
   );
 }
 
 export default CreateGame;
+
+// <div className={styles.container}>
+//       <form onSubmit={addGame}>
+//         <div className={styles.card}>
+//           <h3> Add a missing game </h3>
+//           <label>Title *</label>
+//           <input
+//             required="true"
+//             onChange={handleInputChange}
+//             type="text"
+//             name="name"
+//             value={input.name}
+//             placeholder="Add Title..."
+//           />
+//           <label>Description *</label>
+//           <textarea
+//             required="true"
+//             onChange={handleInputChange}
+//             name="description"
+//             placeholder="Add Description..."
+//             value={input.description}
+//             cols="30"
+//             rows="10"
+//           ></textarea>
+//           <label>Released date*</label>
+//           <input
+//             required="true"
+//             onChange={handleInputChange}
+//             type="text"
+//             name="released"
+//             value={input.released}
+//             placeholder="Add Title..."
+//           />
+//           <label>Background Image *</label>
+//           <input
+//             required="true"
+//             onChange={handleInputChange}
+//             type="text"
+//             name="background_image"
+//             value={input.background_image}
+//             placeholder="Add Title..."
+//           />
+//           <label>Rating *</label>
+//           <input
+//             required="true"
+//             onChange={handleInputChange}
+//             type="number"
+//             name="rating"
+//             value={input.rating}
+//             placeholder="Add rating..."
+//           />
+//           <label>Genres</label>
+//           <select required="true" name="genres" onChange={handleGenre}>
+//             {genres.map((g) => (
+//               <option value={g.id} key={g.id}>
+//                 {g.name}
+//               </option>
+//             ))}
+//           </select>
+//           <div className={styles.genreSelected}>
+//             {genreSelected.map((gs) =>
+//               genres.map((g) =>
+//                 g.id === gs ? (
+//                   <p value={g.id} onDoubleClick={(e) => console.log(e.target)}>
+//                     {g.name}
+//                   </p>
+//                 ) : (
+//                   ""
+//                 )
+//               )
+//             )}
+//           </div>
+
+//           <button type="submit">SAVE GAME</button>
+//         </div>
+//       </form>
+//     </div>

@@ -6,16 +6,19 @@ import { changeOrder } from "../actions/changeOrder";
 import { saveMyGames } from "../actions/saveMyGames";
 import Card from "./Card";
 import styles from "./styles/Videogames.module.css";
+import HashLoader from "react-spinners/CircleLoader";
 
 function Videogames() {
+  useEffect(() => {
+    dispatch(changeOrder(order));
+    dispatch(saveMyGames(myGames));
+    videogames.length > 0 ? setloading(false) : setloading(true);
+  });
+  const [loading, setloading] = useState(true);
   const dispatch = useDispatch();
   let videogames = useSelector((state) => state.gamesLoaded);
   let order = useSelector((state) => state.orderByName);
   let myGames = videogames.filter((g) => g.id.toString().includes("-"));
-  useEffect(() => {
-    dispatch(changeOrder(order));
-    dispatch(saveMyGames(myGames));
-  });
   if (order === 1) {
     videogames.sort(function (a, b) {
       if (a.name > b.name) {
@@ -66,7 +69,13 @@ function Videogames() {
 
   return (
     <div className={styles.content}>
-      <div className={styles.cards}>{displayGames}</div>
+      {loading ? (
+        <div className={styles.hashloader}>
+          <HashLoader size={150} color={"#9008c8"} loading={loading} />
+        </div>
+      ) : (
+        <div className={styles.cards}>{displayGames}</div>
+      )}
       <ul className={styles.pagination}>
         {arrayPage.map((index) => (
           <li value={`${index++}`} key={index} onClick={(e) => setPage(e)}>
