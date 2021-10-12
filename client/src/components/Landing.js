@@ -10,16 +10,6 @@ function Landing() {
     history.push("/home");
   };
 
-  // <div className={styles.container}>
-  //   <div className={styles.content}>
-  //     <div className={styles.title}>
-  //       <h2>THE BIGGER YOUR ADVENTURE,</h2>
-  //       <h2>THE BIGGER THE TASTE OF VICTORY</h2>
-  //       <p>CHOSE YOUR OUR ADVENTURE</p>
-  //     </div>
-  //     <button onClick={handleHistory}>EXPLORE</button>
-  //   </div>
-  // </div>
   return (
     <div>
       <header className={`${styles.header} ${styles.content}`}>

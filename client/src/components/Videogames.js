@@ -9,16 +9,16 @@ import styles from "./styles/Videogames.module.css";
 import HashLoader from "react-spinners/CircleLoader";
 
 function Videogames() {
-  useEffect(() => {
-    dispatch(changeOrder(order));
-    dispatch(saveMyGames(myGames));
-    videogames.length > 0 ? setloading(false) : setloading(true);
-  });
   const [loading, setloading] = useState(true);
   const dispatch = useDispatch();
   let videogames = useSelector((state) => state.gamesLoaded);
   let order = useSelector((state) => state.orderByName);
   let myGames = videogames.filter((g) => g.id.toString().includes("-"));
+  useEffect(() => {
+    dispatch(changeOrder(order));
+    dispatch(saveMyGames(myGames));
+    videogames.length > 0 ? setloading(false) : setloading(true);
+  },[order, myGames, dispatch, videogames]);
   if (order === 1) {
     videogames.sort(function (a, b) {
       if (a.name > b.name) {

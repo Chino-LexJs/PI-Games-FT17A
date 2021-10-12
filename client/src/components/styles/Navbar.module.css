@@ -3,9 +3,8 @@
   background-color: #33204d;
   width: 100%;
   font-size: 20px;
-  justify-content: right;
+  justify-content: center;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 80px;
   /* Sombras */
@@ -17,7 +16,6 @@
 ::placeholder {
   opacity: 0.5;
   border: 0;
-  margin-left: 15vh;
 }
 
 a {
@@ -64,7 +62,7 @@ ul {
 }
 
 .search input {
-  width: 100vh;
+  width: 80vh;
   height: 5vh;
   border: none;
   border-width: 0;
@@ -75,7 +73,7 @@ ul {
 }
 
 .search input:hover {
-  width: 100vh;
+  width: 80vh;
   height: 5vh;
   border: none;
   border-radius: 20px;
@@ -84,5 +82,6 @@ ul {
 }
 
 i {
-  padding-left: 10px;
+  margin: auto;
+  padding-left: 15px;
 }

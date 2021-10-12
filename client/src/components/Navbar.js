@@ -49,7 +49,7 @@ function Navbar() {
           <input
             type="text"
             onKeyDown={(e) => handleInput(e)}
-            placeholder="Search"
+            placeholder="Type your game and press enter"
             className={styles.placeholder}
           />
           <i className="fas fa-search"></i>
