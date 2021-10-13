@@ -24,12 +24,10 @@ const axios = require("axios").default;
 const { Genre } = conn.models;
 
 async function getGenres() {
-  console.log("----------------------");
   try {
     const response = await axios.get(
       `https://api.rawg.io/api/genres?key=${API_KEY}`
     );
-    // console.log(response.data.results);
     const genres = response.data.results.map((item) => {
       return {
         id: item.id,
@@ -37,8 +35,6 @@ async function getGenres() {
         image_background: item.image_background
       };
     });
-
-    // console.log(genres);
     addGenres(genres);
     console.log("Genres successfully loaded into the database");
   } catch (error) {

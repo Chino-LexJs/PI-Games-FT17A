@@ -16,7 +16,7 @@ export function validate(input) {
   if (input.genres.lenght === 0) {
     errors.genres = "genres is required";
   }
-  if (input.rating < 0 || input.rating > 5 ) {
+  if (input.rating < 0 || input.rating > 5) {
     errors.rating = "rating range has to be between 0 - 5 ";
   }
   return errors;
@@ -183,13 +183,52 @@ function CreateGame() {
   };
 
   const handlePlatform = (e) => {
-    if (!platformSelected.includes(Number(e.target.value))) {
-      setPlatformSelected([...platformSelected, Number(e.target.value)]);
-      setInput((prev) => ({
-        ...prev,
-        platforms: [...prev.platforms, Number(e.target.value)],
-      }));
+    if (
+      !platformSelected
+        .map((p) => p.platform.id)
+        .includes(Number(e.target.value))
+    ) {
+      setPlatformSelected([...platformSelected, e.target.value]);
+      platforms.map((p) => {
+        if (p.platform.id === Number(e.target.value)) {
+          setPlatformSelected([...platformSelected, p]);
+          setInput((prev) => ({
+            ...prev,
+            platforms: [...prev.platforms, p],
+          }));
+        }
+      });
     }
+
+    // if (!platformSelected.includes(Number(e.target.value.plataform.id))) {
+    //   setPlatformSelected([...platformSelected, Number(e.target.value)]);
+    //   setInput((prev) => ({
+    //     ...prev,
+    //     platforms: [...prev.platforms, Number(e.target.value)],
+    //   }));
+    // }
+  };
+
+  const deleteGenre = (id) => {
+    let newGenres = genreSelected.filter((g) => g !== Number(id));
+    setGenreSelected([...newGenres]);
+    setInput((prev) => ({
+      ...prev,
+      genres: [...newGenres],
+    }));
+    console.log("ENTRAMOS");
+    console.log(newGenres);
+  };
+
+  const deletePlatform = (id) => {
+    let newPlatforms = platformSelected.filter(
+      (ps) => ps.platform.id !== Number(id)
+    );
+    setPlatformSelected([...newPlatforms]);
+    setInput((prev) => ({
+      ...prev,
+      platforms: [...newPlatforms],
+    }));
   };
 
   const addGame = async (e) => {
@@ -201,10 +240,6 @@ function CreateGame() {
     await axios.post(`http://localhost:3001/videogame`, input);
     window.location.href = "/home";
   };
-  // const deleteGenre = (id) => {
-  //   setGenreSelected(genreSelected.filter((item) => item !== id));
-  // };
-
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -233,7 +268,11 @@ function CreateGame() {
             {genreSelected.map((gs) =>
               genres.map((g) =>
                 g.id === gs ? (
-                  <p value={g.id} onDoubleClick={(e) => console.log(e.target)}>
+                  <p
+                    value={g.id}
+                    key={g.id}
+                    onDoubleClick={() => deleteGenre(gs)}
+                  >
                     {g.name}
                   </p>
                 ) : (
@@ -247,26 +286,22 @@ function CreateGame() {
           <hr />
           <h2>Platforms: </h2>
           <div className={styles.genreSelected}>
-            {platformSelected.map((ps) =>
-              platforms.map((p) =>
-                p.platform.id === ps ? (
-                  <p
-                    value={p.platform.id}
-                    onDoubleClick={(e) => console.log(e.target)}
-                  >
-                    {p.platform.name}
-                  </p>
-                ) : (
-                  ""
-                )
-              )
-            )}
+            {platformSelected.map((ps) => (
+              <p
+                key={ps.platform.id}
+                value={ps.platform.id}
+                onDoubleClick={() => deletePlatform(ps.platform.id)}
+              >
+                {ps.platform.name}
+              </p>
+            ))}
           </div>
         </div>
       </div>
       <form onSubmit={addGame} className={styles.right}>
         <h3> Add a missing game </h3>
         {errors.name && <p className={styles.danger}>{errors.name}</p>}
+        *
         <input
           required={true}
           onChange={handleInputChange}
@@ -275,7 +310,6 @@ function CreateGame() {
           value={input.name}
           placeholder="Add Title..."
         />
-
         <input
           onChange={handleInputChange}
           type="date"
@@ -283,6 +317,7 @@ function CreateGame() {
           value={input.released}
           placeholder="yyyy-mm-dd"
         />
+        *
         <input
           required={true}
           onChange={handleInputChange}
@@ -295,11 +330,13 @@ function CreateGame() {
         <input
           onChange={handleInputChange}
           type="number"
+          step="any"
           min="0"
           max="5"
           name="rating"
           value={input.rating}
         />
+        *
         <select required={true} name="genres" onChange={handleGenre}>
           {genres.map((g) => (
             <option value={g.id} key={g.id}>
@@ -307,14 +344,17 @@ function CreateGame() {
             </option>
           ))}
         </select>
-        <select required={true} name="plataforms" onChange={handlePlatform}>
+        <select
+          required={true}
+          name="plataforms"
+          onChange={(e) => handlePlatform(e)}
+        >
           {platforms.map((p) => (
             <option value={p.platform.id} key={p.platform.id}>
               {p.platform.name}
             </option>
           ))}
         </select>
-
         {errors.description && (
           <p className={styles.danger}>{errors.description}</p>
         )}
@@ -327,8 +367,16 @@ function CreateGame() {
           cols="30"
           rows="10"
         ></textarea>
-
-        <button type="submit">SAVE GAME</button>
+        {platformSelected.length > 0 && genreSelected.length > 0 ? (
+          <button type="submit">SAVE GAME</button>
+        ) : (
+          <>
+            <p>Debe llenar los campos requeridos (*)</p>
+            <button type="submit" disabled>
+              SAVE GAME
+            </button>
+          </>
+        )}
       </form>
     </div>
   );

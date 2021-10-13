@@ -11,6 +11,7 @@ function DetailGame() {
           {<h3> {videogame.name} </h3>}
           <h4>About</h4>
           <div
+            className={styles.text}
             contentEditable="false"
             dangerouslySetInnerHTML={{ __html: `${videogame.description}` }}
           ></div>

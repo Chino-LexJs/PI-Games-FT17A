@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { changeOrder } from "../actions/changeOrder";
 import { saveMyGames } from "../actions/saveMyGames";
-import Card from "./Card";
+import Pagination from "./Pagination";
 import styles from "./styles/Videogames.module.css";
-import HashLoader from "react-spinners/CircleLoader";
+import styles_loading from "./styles/loading.module.css";
+
 
 function Videogames() {
   const [loading, setloading] = useState(true);
@@ -18,7 +19,8 @@ function Videogames() {
     dispatch(changeOrder(order));
     dispatch(saveMyGames(myGames));
     videogames.length > 0 ? setloading(false) : setloading(true);
-  },[order, myGames, dispatch, videogames]);
+  }, [order, myGames, dispatch, videogames]);
+  // Order
   if (order === 1) {
     videogames.sort(function (a, b) {
       if (a.name > b.name) {
@@ -52,39 +54,21 @@ function Videogames() {
       return 0;
     });
   }
-  const [pageNumber, setPageNumber] = useState(0);
-  const gamesPerPage = 15;
-  const pagesVisited = pageNumber * gamesPerPage;
-  const displayGames = videogames
-    .slice(pagesVisited, pagesVisited + gamesPerPage)
-    .map((game) => <Card game={game} key={game.id} />);
-  let pageCount = Math.ceil(videogames.length / gamesPerPage);
-  let arrayPage = [];
-  for (let i = 0; i < pageCount; i++) {
-    arrayPage.push(i);
-  }
-  const setPage = (e) => {
-    setPageNumber(e.target.value);
-  };
 
   return (
     <div className={styles.content}>
       {loading ? (
-        <div className={styles.hashloader}>
-          <HashLoader size={150} color={"#9008c8"} loading={loading} />
+        <div className={styles_loading.loadingio_spinner_rolling_t7vlzoz1usa}>
+          <div className={styles_loading.ldio_pklessn4n6n}>
+            <div></div>
+          </div>
         </div>
       ) : (
-        <div className={styles.cards}>{displayGames}</div>
+        <Pagination videogames={videogames} />
       )}
-      <ul className={styles.pagination}>
-        {arrayPage.map((index) => (
-          <li value={`${index++}`} key={index} onClick={(e) => setPage(e)}>
-            {index}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
 
 export default Videogames;
+
