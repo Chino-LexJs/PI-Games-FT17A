@@ -189,7 +189,7 @@ function CreateGame() {
         .includes(Number(e.target.value))
     ) {
       setPlatformSelected([...platformSelected, e.target.value]);
-      platforms.map((p) => {
+      platforms.forEach((p) => {
         if (p.platform.id === Number(e.target.value)) {
           setPlatformSelected([...platformSelected, p]);
           setInput((prev) => ({
@@ -199,14 +199,6 @@ function CreateGame() {
         }
       });
     }
-
-    // if (!platformSelected.includes(Number(e.target.value.plataform.id))) {
-    //   setPlatformSelected([...platformSelected, Number(e.target.value)]);
-    //   setInput((prev) => ({
-    //     ...prev,
-    //     platforms: [...prev.platforms, Number(e.target.value)],
-    //   }));
-    // }
   };
 
   const deleteGenre = (id) => {

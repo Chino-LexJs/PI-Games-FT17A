@@ -17,15 +17,3 @@ function Videogame() {
 }
 
 export default Videogame;
-{
-  /* <div>
-        <div className={styles.cards}>{displayGames}</div>
-        <ul className={styles.pagination}>
-          {arrayPage.map((index) => (
-          <li value={`${index++}`} onClick={(e) => setPage(e)}>
-            {index}
-          </li>
-        ))}
-        </ul>
-    </div> */
-}

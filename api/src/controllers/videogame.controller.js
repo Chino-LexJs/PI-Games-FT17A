@@ -38,7 +38,6 @@ const getVideogame = async (req, res) => {
       // busco en la api
       videogameById = await getVideogameApi(id);
       videogameById = videogameById.data;
-      // console.log(videogameById.status);
     }
     res.status(200).json({
       data: videogameById,

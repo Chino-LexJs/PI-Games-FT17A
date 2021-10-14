@@ -10,7 +10,7 @@ function Genres() {
     <div className={styles.content}>
       <div className={styles.cards} >
         {genres.map((genre) => (
-          <Card genre={genre}/>
+          <Card genre={genre} key={genre.id} />
         ))}
       </div>
     </div>
