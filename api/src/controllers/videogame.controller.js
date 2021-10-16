@@ -59,6 +59,7 @@ const createVideogame = async (req, res) => {
     background_image,
     rating,
     platforms,
+    price,
     genres, // Tiene que ser un arreglo con los ID de generos [1 , 5, 3]
   } = req.body;
   try {
@@ -70,6 +71,8 @@ const createVideogame = async (req, res) => {
         background_image,
         rating,
         platforms,
+
+        price,
       },
       {
         fields: [
@@ -79,6 +82,7 @@ const createVideogame = async (req, res) => {
           "background_image",
           "rating",
           "platforms",
+          "price",
         ],
       }
     );

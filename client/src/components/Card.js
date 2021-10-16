@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { getDetailGame } from "../actions/getDetailGame";
 import { filterGenres } from "../actions/filterGenres";
 
-function Card({ game, genre, index }) {
+function Card({ game, genre }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const detailGame = (id) => {

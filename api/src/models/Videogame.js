@@ -29,15 +29,21 @@ module.exports = (sequelize) => {
       },
       rating: {
         type: DataTypes.REAL,
+        validate: {
+          max: 5,
+          min: 0,
+        },
       },
       platforms: {
         type: DataTypes.ARRAY(DataTypes.JSON),
         allowNull: false,
       },
+      price: {
+        type:  DataTypes.REAL
+      }
     },
     {
       timestamps: true,
     }
   );
 };
-

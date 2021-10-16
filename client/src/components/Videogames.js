@@ -8,7 +8,6 @@ import Pagination from "./Pagination";
 import styles from "./styles/Videogames.module.css";
 import styles_loading from "./styles/loading.module.css";
 
-
 function Videogames() {
   const [loading, setloading] = useState(true);
   const dispatch = useDispatch();
@@ -54,6 +53,17 @@ function Videogames() {
       return 0;
     });
   }
+  if (order === 4) {
+    videogames.sort(function (a, b) {
+      if (a.released < b.released) {
+        return 1;
+      }
+      if (a.released > b.released) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 
   return (
     <div className={styles.content}>
@@ -71,4 +81,3 @@ function Videogames() {
 }
 
 export default Videogames;
-

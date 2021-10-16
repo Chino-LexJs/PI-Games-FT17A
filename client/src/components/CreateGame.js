@@ -83,6 +83,7 @@ function CreateGame() {
     released: "",
     background_image: "",
     rating: 0,
+    price: 0,
     platforms: [
       // {
       //   platform: {

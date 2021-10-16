@@ -6,6 +6,7 @@ import {
   GET_GENRES,
   FILTER_GENRES,
   SAVE_MAY_GAMES,
+  ORDER_RELASE
 } from "../actions";
 
 const initialState = {

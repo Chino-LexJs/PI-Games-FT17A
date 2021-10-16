@@ -3,7 +3,6 @@ const axios = require("axios").default;
 const { API_KEY } = process.env;
 
 async function getVideogamesApi() {
-  console.log("-----------Video Games Api-----------");
   let next;
   let promises = [];
   let apiGames = [];
@@ -36,7 +35,6 @@ async function getVideogamesApi() {
         genres: element.genres,
       };
     });
-    console.log(apiGames.length);
     return apiGames;
   } catch (error) {
     console.error(error);
@@ -48,7 +46,8 @@ async function getVideogameApi(name) {
     let response = await axios.get(
       `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}`
     );
-    return response.data.results;
+
+    return response.data.results.slice(0, 15);
   } catch (error) {
     console.error(error);
   }
